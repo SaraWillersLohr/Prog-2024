@@ -1,0 +1,49 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+    
+    string ConvertirJapones (string n);
+    int
+    main ()
+    {
+      string nombre;
+    
+      cout << "Ingrese su nombre completo: " << endl;
+      getline (cin, nombre);
+    
+      cout << ConvertirJapones (nombre) << endl;
+    
+      return 0;
+    }
+    
+    string
+    ConvertirJapones (string n)
+    {
+      string nombre;
+      string inicio = "konnichi wa, ";
+      string final = " -san";
+      string nombrenuevo;
+      for (int i = 0; i < n.size (); i++)
+    	{
+    	  nombre += n[i];
+    	  if (n[i] != 'a' && n[i] != 'e' && n[i] != 'i' && n[i] != 'o'
+    		  && n[i] != 'u' && n[i] != ' ')
+    		{
+    
+    
+    		  if (n[i + 1] != 'a' && n[i + 1] != 'e' && n[i + 1] != 'i'
+    			  && n[i + 1] != 'o' && n[i + 1] != 'u' && n[i + 1] != ' ')
+    			{
+    
+    			  nombre += 'u';
+    
+    			}
+    		}
+    
+    
+    	}
+    
+      nombrenuevo = inicio + nombre + final;
+    
+    
+      return nombrenuevo;
+    }
