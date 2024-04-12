@@ -1,0 +1,96 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int CantLatas(string hilera);
+int SecMasLarga(string hilera);
+int SeclargaDos(string hilera);
+int Distancia(string hilera);
+
+int main()
+{
+string hilera;
+
+cout<<"iNGRESE la secuencia:  "<<endl;
+getline(cin, hilera);
+
+cout<<"Catidad de latas: "<<CantLatas(hilera)<<endl;
+cout<<"Secuencia más grande: "<<SecMasLarga(hilera)<<endl;
+cout<<"Segunda secuencia más grande: "<<SeclargaDos(hilera)<<endl;
+cout<<"Distancia: "<<Distancia(hilera)<<endl;
+
+return 0;
+}
+
+int CantLatas(string hilera){
+
+return hilera.size();
+
+}
+
+int SecMasLarga(string hilera) {
+    int max = 0;  
+    int contador = 0;  
+
+    for (int i = 0; i < hilera.size(); i++) {
+        if (hilera[i] == 'G') {
+            contador++; 
+        } else {
+            if (contador > max) {
+                max = contador;  
+            }
+            contador = 0;  
+        }
+    }
+
+
+    if (contador > max) {
+        max = contador;
+    }
+
+    return max;
+}
+
+int SeclargaDos(string hilera) {
+    int max = 0;  
+    int max2 = 0;  
+    int contador = 0;  
+
+    for (int i = 0; i < hilera.size(); i++) {
+        if (hilera[i] == 'G') {
+             contador++;
+            if (contador > max) {
+                max2 = max;  
+                max = contador; 
+            } else{
+			 if (contador < max) {
+                max2 = contador;  
+                
+            }
+        }
+        } else {
+            contador = 0;  
+        }
+    }
+
+    return max2;
+}
+		int Distancia(string hilera) {
+    int distancia = 0;
+    int max1; 
+	int max2;
+    int c = 0;
+    
+
+    for (int i = 0; i < hilera.size(); i++) {
+        if (hilera[i] == 'G') {
+            c++;
+            if (c== max1 || c == max2) {
+            
+                distancia = c;
+                
+            }
+        }
+    }
+
+    return distancia;
+}
