@@ -22,10 +22,10 @@ string InvertirPalabra(int I, int F, string frase){
 int i;
 int aux;
 
-for(i>I; i<F/2; i++ ){
-	aux=frase[i];
-	frase[i]=frase[F-i];
-	frase[F-i]=aux;
-}
+for(int i = 0; i <= (F - I) / 2; i++){
+         aux = frase[I + i];
+        frase[I + i] = frase[F - i];
+        frase[F - i] = aux;
+    }
 return frase;
 }
