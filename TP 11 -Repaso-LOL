@@ -14,7 +14,7 @@ int main() {
 
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++) {
-            cout << "Digite un numero [" << i << "][" << j << "]: " << endl;
+            cout << "Digite L y O [" << i << "][" << j << "]: " << endl;
             cin >> numeros[i][j];
         }
     }
