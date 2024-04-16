@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string Matrix(string numeros[][100], int filas, int columnas);
+string Matrix(string matrix[][100], int filas, int columnas);
 
 int main() {
-    string numeros[100][100];
+    string matrix[100][100];
     int filas, columnas;
 
     cout << "Digite el numero de filas: " << endl;
@@ -15,21 +15,21 @@ int main() {
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++) {
             cout << "Digite L y O [" << i << "][" << j << "]: " << endl;
-            cin >> numeros[i][j];
+            cin >> matrix[i][j];
         }
     }
 
-    cout << Matrix(numeros, filas, columnas) << endl;
+    cout << Matrix(matrix, filas, columnas) << endl;
 
     return 0;
 }
 
-string Matrix(string numeros[][100], int filas, int columnas) {
+string Matrix(string matrix[][100], int filas, int columnas) {
     string resultado = "";
 
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++) {
-            resultado += numeros[i][j] + " ";
+            resultado += matrix[i][j] + " ";
         }
         resultado += "\n";
     }
