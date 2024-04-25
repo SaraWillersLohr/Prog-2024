@@ -1,0 +1,42 @@
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    string Repite(string frase);
+    
+    int main() {
+        string frase;
+        cout << "Ingrese una frase: " << endl;
+        getline(cin, frase);
+    
+        cout <<"Resultado: "<< Repite(frase) << endl;
+    
+        return 0;
+    }
+    
+    string Repite(string frase) {
+        int contador = 1; 
+        string aux;
+        
+        for (int i = 0; i < frase.size(); i++) {
+            if (i + 1 < frase.size() && frase[i] == frase[i + 1]) {
+                contador++; 
+            }
+            else{
+                
+                if (contador > 1) {
+                
+                    aux += frase[i];
+                    aux += '{';
+                    aux += contador + '0';
+                    aux += '}';
+                } else {
+                   
+                    aux += frase[i];
+                }
+                contador = 1; 
+            
+            }
+        }
+        return aux;
+    }
