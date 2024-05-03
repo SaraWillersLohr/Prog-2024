@@ -7,91 +7,119 @@ class CNumber{
   
   public:
   CNumber(int,int,int);
-  void Max();
-  void Min();
-  void Promedio();
-  void Pares();
-  void Impares();
+  int setn1(int _n1);      
+  int setn2(int _n2);
+  int setn3(int _n3);
+  float Max(int _n1,int _n2, int _n3);
+  float Min(int _n1,int _n2, int _n3);
+  float Promedio(int _n1,int _n2, int _n3);
+  float Pares(int _n1,int _n2, int _n3);
+  float Impares(int _n1,int _n2, int _n3);
 };
 
 CNumber::CNumber(int _n1, int _n2, int _n3){
-    n1=_n1;
-    n2=_n2;
-    n3=_n3;
+    n1=setn1(_n1);
+    n2=setn2(_n2);
+    n3=setn3(_n3);
 }
 
-void CNumber::Max(){
+int CNumber::setn1(int _n1){
+    n1= _n1;
+    return _n1;
+}     
+  int CNumber::setn2(int _n2){
+      n2= _n2;
+    return _n2;
+  }
+  int CNumber::setn3(int _n3){
+      n3= _n3;
+    return _n3;
+  }
+
+float CNumber::Max(int _n1,int _n2, int _n3){
    
-    int max=n1;
-   if(n2 > max){
-       max = n2;
+    int max= _n1;
+   if( _n2 > max){
+       max = _n2;
        
    }
-    if(n3 > max){
-        max = n3;
+    if(_n3 > max){
+        max = _n3;
         
     }
-    cout << "El máximo es: " << max << endl;
+    return max;
 } 
-void CNumber::Min(){
+float CNumber::Min(int _n1,int _n2, int _n3){
      int min;
-    if(n1<n2 || n1<n3){
-        min=n1;
+    if(_n1<_n2 || _n1<_n3){
+        min=_n1;
         
     }
-    if(n2<n1 || n2<n3){
-        min=n2;
+    if(_n2<_n1 || _n2<_n3){
+        min=_n2;
         
     }
     else{
-        min=n3;
+        min=_n3;
     }
-    cout<<"El minimo es: "<<min<<endl;
+    return min;
 }
-void CNumber::Promedio(){
+float CNumber::Promedio(int _n1,int _n2, int _n3){
     int promedio;
-    promedio= (n1+n2+n3)/3;
+    promedio= (_n1+ _n2+ _n3)/3;
     
-    cout<<"El promedio es: "<<promedio<<endl;
+    return promedio;
 }
 
-void CNumber::Pares(){
+float CNumber::Pares(int _n1,int _n2, int _n3){
    int par=0;
-    if(n1%2==0){
+    if( _n1%2==0){
         par+=1;
     }
-    if(n2%2==0){
+    if( _n2%2==0){
         par+=1;
     }
-    if(n3%2==0){
+    if( _n3%2==0){
         par+=1;
     }
-   cout<<"Los pares son: "<<par<<endl;
+  return par;
 }
 
-void CNumber::Impares(){
+float CNumber::Impares(int _n1,int _n2, int _n3){
      int impar=0;
-    if(n1%2!=0){
+    if( _n1%2!=0){
         impar+=1;
     }
-    if(n2%2!=0){
+    if( _n2%2!=0){
         impar+=1;
     }
-    if(n3%2!=0){
+    if( _n3%2!=0){
         impar+=1;
     }
-   cout<<"Los impares son: "<<impar<<endl;
+  return impar;
 }
 
 
 int main()
 {
-    CNumber p1(10, 8, 9);
-    p1.Max();
-    p1.Min();
-    p1.Promedio();
-    p1.Pares();
-    p1.Impares();
+    int _n1=10;
+    int _n2=8;
+    int _n3=9;
+    
+    CNumber p1( _n1, _n2, _n3);
+    int max2,min2,prom,par,impar;
+    max2=p1.Max(_n1, _n2, _n3);
+    min2=p1.Min(_n1, _n2, _n3);
+    prom=p1.Promedio(_n1, _n2, _n3);
+    par=p1.Pares(_n1, _n2, _n3);
+    impar=p1.Impares(_n1, _n2, _n3);
+    cout << "El máximo es: " << max2 << endl;
+    cout<<"El minimo es: "<<min2<<endl;
+    cout<<"El promedio es: "<<prom<<endl;
+    cout<<"Los pares son: "<<par<<endl;
+    cout<<"Los impares son: "<<impar<<endl;
+    
+  
     
     return 0;
 }
