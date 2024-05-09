@@ -1,0 +1,87 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+    class CEmpleado{
+      private:
+     string nombre,dirección;
+     int ingreso, salario; 
+      
+      public:
+      
+      CEmpleado(string n, string d, int in, int sal);
+      string setN(string n);
+      string setD(string d);
+      int setIn(int in);
+      int setS(int sal);    
+      float Antiguedad(int in);
+      bool ViveenWS(string d);
+      
+      
+    };
+    CEmpleado::CEmpleado(string n, string d, int in, int sal){
+        nombre=setN(n);
+        dirección=setD(d);
+        ingreso=setIn(in);
+        salario=setS(sal);
+    }
+    string CEmpleado::setN(string n){
+        nombre=n;
+        return nombre;
+    }
+    string CEmpleado::setD(string d){
+        dirección=d;
+        return dirección;
+    }
+    int CEmpleado::setIn(int in){
+        ingreso=in;
+        return ingreso;
+    }
+    int CEmpleado::setS(int sal){
+        salario=sal;
+        return salario;
+    }
+    
+    float CEmpleado::Antiguedad(int in){
+        int actual=2024;
+        int ant;
+        ant=(actual-in);
+        return ant;
+    }
+    
+    bool CEmpleado::ViveenWS(string d){
+    bool flag=false;
+     if (d.find("WallStreet") != string::npos) {
+        flag=true;
+    }else{
+        flag=false;
+    }
+    
+    return flag;
+    }
+    
+    int main()
+    { 
+        string n= "Sabrina";
+        string d= "thames 4529";
+        int in=2019;
+        int sal=150000;
+        
+        CEmpleado p1(n,d,in,sal);
+        
+        cout<<"Nombre: "<<p1.setN(n)<<endl;
+        cout<<"Dirección: "<<p1.setD(d)<<endl;
+        cout<<"Año de ingreso: "<<p1.setIn(in)<<endl;
+        cout<<"Salario: "<<p1.setS(sal)<<endl;
+        cout << "Años de antigüedad: " << p1.Antiguedad(in) << endl;
+        bool vive= p1.ViveenWS(d);
+        
+        if(vive==true){
+            cout<<"Vive en WallStreet."<<endl;
+        }
+        else{
+            cout<<"No vive en WallStreet."<<endl;
+        }
+        
+        
+        
+        return 0;
+    }
