@@ -1,0 +1,66 @@
+        #include<bits/stdc++.h>
+        using namespace std;
+        
+        class Empleado {
+            private:
+            string nombre, apellido, direccion;
+            int sueldo, canth, antig;
+            float calcularJubilacion();
+            float calcularObSocial();
+            float calcularINSSJP();
+            
+            public:
+            Empleado(string n, string ap, string d, int s, int cant, int ant); 
+            float sueldoNeto();
+        };
+        
+         Empleado::Empleado(string n, string ap, string d, int s, int cant, int ant){
+               nombre=n;
+               apellido=ap;
+               direccion=d;
+               canth=cant;
+               sueldo=s;
+               antig=ant;
+         }
+         float Empleado::calcularJubilacion() {
+             
+             float jub=sueldo * 0.11;
+             
+                return jub;
+            }
+            
+            float Empleado::calcularObSocial() {
+                
+                float obs=sueldo * 0.03;
+                
+                return obs;
+            }
+            
+            float Empleado::calcularINSSJP(){
+                
+               float inssjp=sueldo * 0.03;
+               
+                return inssjp;
+            }
+            
+            float Empleado::sueldoNeto() {
+                
+                float deducciones = calcularJubilacion() + calcularObSocial() + calcularINSSJP();
+                float resultado=sueldo - deducciones;
+                
+                return resultado;
+            }
+        
+        
+        int main() {
+            Empleado e("Juan", "Rodriguez", "Vicente López 463", 900000, 3, 12);
+            cout<<"Nombre: Juan Rodriguez."<<endl;
+            cout<<"Dirección: Vicente López 463."<<endl;
+            cout<<"Sueldo: $900000 "<<endl;
+            cout<<"Hijos: 3."<<endl;
+            cout<<"Años en la empresa: 12."<<endl;
+            cout << "Sueldo neto: " << e.sueldoNeto() << endl;
+            
+            
+            return 0;
+        }
