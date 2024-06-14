@@ -1,0 +1,61 @@
+  #include <bits/stdc++.h>
+    using namespace std;
+    class CCuenta{
+      private:
+     string titular;
+     double cantidad;
+ 
+      
+      public:
+      
+      CCuenta(string t,double c);
+      string setT(string t);
+      double setC(double c);
+      double Ingrese(double c, double in);
+      
+      
+    };
+    
+    CCuenta::CCuenta(string t, double c){
+        titular = setT(t);
+        cantidad = setC(c);
+    }
+    string CCuenta:: setT(string t){
+        titular=t;
+        return titular;
+    }
+    double CCuenta::setC(double c){
+        cantidad=c;
+        return cantidad;
+    }
+    double CCuenta::Ingrese(double c, double in){
+        float resultado;
+        resultado=in+c;
+        if(in<1){
+            return c;
+        }
+        return resultado;
+    }
+    
+
+    
+    int main()
+    { 
+        string t= "Valentina";
+        double c= 17000.8;
+        double in;
+        
+        
+        CCuenta p1(t, c);
+        
+        cout<<"Nombre: "<<p1.setT(t)<<endl;
+        cout<<"Dinero en la cuenta: "<<p1.setC(c)<<endl;
+        cout<<"Ingrese el monto a sumar: "<<endl;
+        cin>>in;
+        cout<<"Total:  "<<p1.Ingrese(c, in)<<endl;
+        
+        
+        
+        
+        return 0;
+    }
