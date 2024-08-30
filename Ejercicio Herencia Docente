@@ -1,0 +1,58 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+    
+    class Persona {
+    private:
+        string nombre;
+        int edad;
+    
+    public:
+        Persona(string, int);
+        void mostrarPersona();
+    };
+    
+    class Docente : public Persona {
+    private:
+        string codigoDocente;
+        string cuil;
+        string titulo;
+    
+    public:
+        Docente(string, int, string, string, string);
+        void mostrarDocente();
+    };
+    
+    Persona::Persona(string _nombre, int _edad) {
+        nombre = _nombre;
+        edad = _edad;
+    }
+    
+    Docente::Docente(string _nombre, int _edad, string _codigoDocente, string _cuil, string _titulo)
+        : Persona(_nombre, _edad) {
+        codigoDocente = _codigoDocente;
+        cuil = _cuil;
+        titulo=_titulo;
+    }
+    
+    void Persona::mostrarPersona() {
+        cout << "Nombre: " << nombre << endl;
+        cout << "Edad: " << edad << endl;
+    }
+    
+    void Docente::mostrarDocente() {
+        mostrarPersona();
+        cout << "Codigo de docente: " << codigoDocente << endl;
+        cout << "Cuil: " << cuil << endl;
+        cout << "titulo: " << titulo << endl;
+    }
+    
+    int main() {
+        Docente docente1("Silvana", 38,"1234", "9038130948", "ingeniero");
+        docente1.mostrarDocente();
+        cout << "------------------------------------------------" << endl;
+        Docente docente2("Julian", 45,"2468", "2300008454", "pintor");
+        docente1.mostrarDocente();
+    
+        return 0;
+    }
+    
