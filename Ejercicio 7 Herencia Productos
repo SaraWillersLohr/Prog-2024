@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Producto {
+protected:
+    string nombre;
+    int precio;
+
+public:
+    Producto(string, int);
+    void mostrarProducto();
+    int calcular(int cantidad);
+};
+
+class Perecedero : public Producto {
+private:
+    int diascaducar;
+
+public:
+    Perecedero(string, int, int);
+    int calcular(int cantidad);
+};
+
+class Noperecedero : public Producto {
+private:
+    string tipo;
+
+public:
+    Noperecedero(string, int, string);
+    int calcular(int cantidad);
+};
+
+Producto::Producto(string _nombre, int _precio) {
+    nombre = _nombre;
+    precio = _precio;
+}
+
+void Producto::mostrarProducto() {
+    cout << "Nombre: " << nombre << endl;
+    cout << "Precio: " << precio << endl;
+}
+
+int Producto::calcular(int cantidad) {
+    return precio * cantidad;
+}
+
+Perecedero::Perecedero(string _nombre, int _precio, int _diascaducar)
+    : Producto(_nombre, _precio) {
+    diascaducar = _diascaducar;
+}
+
+int Perecedero::calcular(int cantidad) {
+    if (diascaducar == 1)
+        return precio * cantidad / 4;
+    else if (diascaducar == 2)
+        return precio * cantidad / 3;
+    else if (diascaducar == 3)
+        return precio * cantidad / 2;
+    else
+        return precio * cantidad;
+}
+
+Noperecedero::Noperecedero(string _nombre, int _precio, string _tipo)
+    : Producto(_nombre, _precio) {
+    tipo = _tipo;
+}
+
+int Noperecedero::calcular(int cantidad) {
+    return precio * cantidad;
+}
+
+int main() {
+    Perecedero productoPerecedero("Leche", 50, 3);
+    Noperecedero productoNoPerecedero("Arroz", 30, "Grano");
+
+
+    cout << "Producto Perecedero:" << endl;
+    productoPerecedero.mostrarProducto();
+
+    cout << "Producto No Perecedero:" << endl;
+    productoNoPerecedero.mostrarProducto();
+
+
+
+    int cantidad = 5;
+    int totalPerecedero = productoPerecedero.calcular(cantidad);
+    int totalNoPerecedero = productoNoPerecedero.calcular(cantidad);
+
+    cout << "Total de productos perecederos: $" << totalPerecedero << endl;
+    cout << "Total de productos no perecederos: $" << totalNoPerecedero << endl;
+
+    return 0;
+}
